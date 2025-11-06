@@ -6,6 +6,19 @@
   <title>Contact | PipeWrench</title>
   <meta name="description" content="Contact PipeWrench to start a pilot, request a demo, or discuss your needs." />
   <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    /* Optional: make iframe responsive and styled */
+    .embed-frame {
+      width: 100%;
+      min-height: 820px; /* adjust as needed if Sitch form is taller/shorter */
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0a0f1f;
+    }
+    @media (max-width: 640px) {
+      .embed-frame { min-height: 1000px; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -32,40 +45,38 @@
     <div class="container">
       <span class="tag">Contact</span>
       <h2>Let’s discuss your goals</h2>
-      <p>Email us directly or use the form below to start the conversation.</p>
+      <p>Email us directly or use the form to request a demo.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
       <div class="grid cols-2">
+        <!-- Direct email -->
         <div class="card">
           <h4>Direct Email</h4>
-          <p><strong>Denise Nelson</strong><br /><a href="mailto:dnadvising@gmail.com">dnadvising@gmail.com</a></p>
+          <p><strong>Denise Nelson</strong><br />
+            <a href="mailto:dnadvising@gmail.com">dnadvising@gmail.com</a>
+          </p>
+          <p class="note">Prefer email? Send us your name, organization, and what you’d like to explore.</p>
         </div>
+
+        <!-- Sitch embedded form -->
         <div class="card">
-          <h4>Message Us</h4>
-          <form onsubmit="handleSubmit(event)">
-            <div class="grid cols-2">
-              <div>
-                <label for="name">Name</label><br />
-                <input id="name" name="name" type="text" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0a0f1f;color:var(--text)" />
-              </div>
-              <div>
-                <label for="email">Email</label><br />
-                <input id="email" name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0a0f1f;color:var(--text)" />
-              </div>
-            </div>
-            <div style="margin-top:10px">
-              <label for="msg">Message</label><br />
-              <textarea id="msg" name="message" rows="6" required style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0a0f1f;color:var(--text)"></textarea>
-            </div>
-            <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-              <button class="btn primary" type="submit">Send Message</button>
-              <span id="status" class="note"></span>
-            </div>
-          </form>
-          <p class="note" style="margin-top:10px">Replace this demo handler with your email service or add a mailto link for submission.</p>
+          <h4>Request a Demo</h4>
+          <iframe
+            class="embed-frame"
+            src="https://sitch.app/s/jhVfwoT"
+            title="PipeWrench Demo Request"
+            loading="lazy"
+          ></iframe>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://sitch.app/s/jhVfwoT" target="_blank" rel="noopener">Open Form in New Tab</a>
+            <a class="btn" href="https://calendly.com/YOUR_CALENDLY_USERNAME/demo" target="_blank" rel="noopener">Book a Time</a>
+          </div>
+          <p class="note" style="margin-top:8px">
+            We collect just your name, email, and organization—no message required.
+          </p>
         </div>
       </div>
     </div>
@@ -77,14 +88,7 @@
       <div class="note">Built for GitHub Pages. No build tools.</div>
     </div>
   </footer>
-  <script>
-    function handleSubmit(e){
-      e.preventDefault();
-      const status = document.getElementById('status');
-      status.textContent = 'Sending...';
-      setTimeout(()=>{ status.innerHTML = 'Thanks! Your message has been recorded. <span class="success">✓</span>'; e.target.reset(); }, 800);
-    }
-  </script>
+
   <script src="assets/site.js"></script>
 </body>
 </html>
